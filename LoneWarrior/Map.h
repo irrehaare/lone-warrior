@@ -1,11 +1,13 @@
 #pragma once
 #include "Tile.h"
+#include <vector>
 
 class Map
 {
 private:
-	Tile grid[20][10];
+	std::vector<Tile> grid;
 
 public:
-	Tile** getGrid();
+	Map(int height, int width);
+	std::vector<Tile> getGrid();
 };
