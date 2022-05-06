@@ -11,3 +11,4 @@ public:
 	Map(int height, int width);
 	std::vector<std::vector<Tile>> getGrid() const;
 };
+

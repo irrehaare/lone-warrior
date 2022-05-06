@@ -5,6 +5,9 @@
 #include <plog/Initializers/RollingFileInitializer.h>
 
 #include <iostream>
+#include "Tile.h"
+
+using namespace std;
 
 int main()
 {
