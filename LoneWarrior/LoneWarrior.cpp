@@ -1,4 +1,5 @@
-﻿#include "Tile.h"
+﻿#include "Display.h"
+#include "Tile.h"
 #include "Map.h"
 
 #include <plog/Log.h>
@@ -15,20 +16,12 @@ int main()
     plog::init(plog::debug, "Logfile.txt");
     PLOGD << "Starting application...";
 
-    // Tile test
-    Tile tile('+');
-    printf("%c\n", tile.getSymbol());
+    // App start
+    Display display;
 
     //Map test
-    Map map(7, 5);
-    for (int i = 0; i < map.getGrid().size(); i++)
-    {
-        for (int j = 0; j < map.getGrid()[i].size(); j++)
-        {
-            printf("%c", map.getGrid()[i][j].getSymbol());
-        }
-        printf("\n");
-    }
+    Map map(15, 50);
+    display.refresh(&map);
 
     // Finalize
     return 0;

@@ -3,10 +3,10 @@
 class Tile
 {
 private:
-	char symbol;
+	char16_t symbol;
 
 public:
 	explicit Tile(char symbol);
 
-	char getSymbol() const { return symbol; }
+	char16_t getSymbol() const { return symbol; }
 };
