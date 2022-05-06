@@ -5,11 +5,15 @@ Map::Map(int height, int width)
 {
 	for (int i = 0; i < height; i++)
 	{
-		grid.push_back(Tile('.'));
+		grid[i] = std::vector<Tile>();
+		for (int j = 0; j < width; j++)
+		{
+			grid.at(i).push_back(Tile('.'));
+		}
 	}
 }
 
-std::vector<Tile> Map::getGrid()
+std::vector<std::vector<Tile>> Map::getGrid() const
 {
 	return grid;
 }

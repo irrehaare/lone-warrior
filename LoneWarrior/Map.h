@@ -5,9 +5,9 @@
 class Map
 {
 private:
-	std::vector<Tile> grid;
+	std::vector<std::vector<Tile>> grid;
 
 public:
 	Map(int height, int width);
-	std::vector<Tile> getGrid();
+	std::vector<std::vector<Tile>> getGrid() const;
 };

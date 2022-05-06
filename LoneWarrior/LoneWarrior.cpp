@@ -21,7 +21,11 @@ int main()
     Map map(7, 5);
     for (int i = 0; i < map.getGrid().size(); i++)
     {
-        printf("%c", map.getGrid().at(i).getSymbol());
+        for (int j = 0; j < map.getGrid().at(i).size(); j++)
+        {
+            printf("%c", map.getGrid().at(i).at(j).getSymbol());
+            printf("\n");
+        }
     }
 
     // Finalize
