@@ -27,8 +27,8 @@ int main()
         for (int j = 0; j < map.getGrid().at(i).size(); j++)
         {
             printf("%c", map.getGrid().at(i).at(j).getSymbol());
-            printf("\n");
         }
+        printf("\n");
     }
 
     // Finalize
