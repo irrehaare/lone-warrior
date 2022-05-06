@@ -8,7 +8,7 @@ Map::Map(int height, int width)
 		grid.emplace_back();
 		for (int j = 0; j < width; j++)
 		{
-			grid.at(i).push_back(Tile('.'));
+			grid[i].push_back(Tile('.'));
 		}
 	}
 }

@@ -16,7 +16,6 @@ int main()
     PLOGD << "Starting application...";
 
     // Tile test
-    std::cout << "Hello World!\n";
     Tile tile('+');
     printf("%c\n", tile.getSymbol());
 
@@ -24,9 +23,9 @@ int main()
     Map map(7, 5);
     for (int i = 0; i < map.getGrid().size(); i++)
     {
-        for (int j = 0; j < map.getGrid().at(i).size(); j++)
+        for (int j = 0; j < map.getGrid()[i].size(); j++)
         {
-            printf("%c", map.getGrid().at(i).at(j).getSymbol());
+            printf("%c", map.getGrid()[i][j].getSymbol());
         }
         printf("\n");
     }
