@@ -5,6 +5,9 @@
 class Display
 {
 public:
-	void refresh(Map*);
+	void refresh(Map*) const;
+
+private:
+	void clear() const;
 };
 

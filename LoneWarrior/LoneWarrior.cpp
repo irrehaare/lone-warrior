@@ -1,14 +1,9 @@
-﻿#include "Display.h"
-#include "Tile.h"
-#include "Map.h"
+﻿#include "Engine.h"
 
 #include <plog/Log.h>
 #include <plog/Initializers/RollingFileInitializer.h>
 
 #include <iostream>
-#include "Tile.h"
-
-using namespace std;
 
 int main()
 {
@@ -17,13 +12,10 @@ int main()
     PLOGD << "Starting application...";
 
     // App start
-    Display display;
+    Engine engine;
 
-    //App test
-    Map map(5, 15);
-    Entity player('@');
-    map.getGrid()[2][2].setEntity(&player);
-    display.refresh(&map);
+    // App test
+    engine.playGame();
 
     // Finalize
     return 0;
