@@ -13,5 +13,5 @@ char16_t Tile::getSymbol()
 
 void Tile::setEntity(Entity* newPEntity)
 {
-	this->pEntity = { newPEntity };
+	this->pEntity = newPEntity;
 }

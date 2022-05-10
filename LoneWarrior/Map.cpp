@@ -8,12 +8,12 @@ Map::Map(int height, int width)
 		grid.emplace_back();
 		for (int j = 0; j < width; j++)
 		{
-			grid[i].push_back(Tile('.'));
+			grid[i].emplace_back('.');
 		}
 	}
 }
 
-std::vector<std::vector<Tile>> Map::getGrid() const
+std::vector<std::vector<Tile>>& Map::getGrid()
 {
 	return grid;
 }
