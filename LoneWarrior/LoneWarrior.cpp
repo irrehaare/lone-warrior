@@ -19,8 +19,10 @@ int main()
     // App start
     Display display;
 
-    //Map test
-    Map map(15, 50);
+    //App test
+    Map map(3, 1);
+    Entity player('@');
+    map.getGrid()[0][0].setEntity(&player);
     display.refresh(&map);
 
     // Finalize
