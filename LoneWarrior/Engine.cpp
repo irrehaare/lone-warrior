@@ -22,6 +22,7 @@ void Engine::playGame()
     player.setCoodrinates(2, 2);
 
     isOngoing = true;
+    display.refresh(&map);
     while (isOngoing) 
     {
         processTurn();
@@ -40,7 +41,7 @@ void Engine::processTurn()
     case DOWN:
     case LEFT:
     case RIGHT:
-        movePlayer(input);
+        makeStep(input);
         break;
     default:
         break;
@@ -50,14 +51,10 @@ void Engine::processTurn()
     printf("%d\n", input);
 }
 
-void Engine::movePlayer(int input)
+void Engine::makeStep(int input)
 {
-    int oldX = player.getX();
-    int oldY = player.getY();
     auto [xChange, yChange] = mapInputToCoordintesChange(input);
-    map.getGrid()[oldY + yChange][oldX + xChange].setEntity(&player);
-    map.getGrid()[oldY][oldX].clearEntity();
-    player.setCoodrinates(oldX + xChange, oldY + yChange);
+    movePlayer(xChange, yChange);
 }
 
 std::pair<int, int> Engine::mapInputToCoordintesChange(int input) const
@@ -75,6 +72,33 @@ std::pair<int, int> Engine::mapInputToCoordintesChange(int input) const
     default:
         return std::pair<int, int>(0, 0);
     }
+}
+
+void Engine::movePlayer(int xChange, int yChange)
+{
+    int oldX = player.getX();
+    int newX = getNewCoordinate(oldX, xChange, static_cast<int>(map.getGrid()[0].size()));
+
+    int oldY = player.getY();
+    int newY = getNewCoordinate(oldY, yChange, static_cast<int>(map.getGrid().size()));
+
+    map.getGrid()[oldY][oldX].clearEntity();
+    map.getGrid()[newY][newX].setEntity(&player);
+    player.setCoodrinates(newX, newY);
+}
+
+int Engine::getNewCoordinate(int oldCoordinate, int change, int size) const
+{
+    int newCoordinate = oldCoordinate + change;
+    if (newCoordinate >= size)
+    {
+        newCoordinate = size - 1;
+    }
+    else if (newCoordinate < 0)
+    {
+        newCoordinate = 0;
+    }
+    return newCoordinate;
 }
 
 void Engine::finishGame()

@@ -7,14 +7,16 @@ class Engine
 {
 private:
 	Display display;
-	Map map = Map(20, 40);
+	Map map = Map(20, 30);
 	Entity player = Entity('@');
 	bool isOngoing = false;
 
 	void processTurn();
 	int getInput() const;
-	void movePlayer(int input);
+	void makeStep(int input);
 	std::pair<int, int> mapInputToCoordintesChange(int input) const;
+	void movePlayer(int xChange, int yChange);
+	int getNewCoordinate(int oldCoordinate, int change, int size) const;
 	void finishGame();
 
 public:
