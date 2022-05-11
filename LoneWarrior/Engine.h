@@ -13,6 +13,9 @@ private:
 
 	void processTurn();
 	int getInput() const;
+	void movePlayer(int input);
+	std::pair<int, int> mapInputToCoordintesChange(int input) const;
+	void finishGame();
 
 public:
 	explicit Engine() =default;

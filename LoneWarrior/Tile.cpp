@@ -15,3 +15,8 @@ void Tile::setEntity(Entity* newPEntity)
 {
 	this->pEntity = newPEntity;
 }
+
+void Tile::clearEntity()
+{
+	pEntity.reset();
+}
