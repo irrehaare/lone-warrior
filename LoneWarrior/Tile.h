@@ -11,6 +11,7 @@ private:
 public:
 	explicit Tile(char16_t symbol);
 	char16_t getSymbol();
+	std::optional<Entity*> getEntity();
 	void setEntity(Entity* pEntity);
 	void clearEntity();
 };

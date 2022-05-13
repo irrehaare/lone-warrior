@@ -20,6 +20,10 @@ void Engine::playGame()
 {
     map.getGrid()[2][2].setEntity(&player);
     player.setCoodrinates(2, 2);
+    
+    Entity column('#');
+    map.getGrid()[2][3].setEntity(&column);
+    column.setCoodrinates(2, 3);
 
     isOngoing = true;
     display.refresh(&map);
@@ -34,14 +38,14 @@ void Engine::processTurn()
     int input = getInput();
     switch (input)
     {
-    case END_GAME_BUTTON:
-        finishGame();
-        break;
     case UP:
     case DOWN:
     case LEFT:
     case RIGHT:
         makeStep(input);
+        break;
+    case END_GAME_BUTTON:
+        finishGame();
         break;
     default:
         break;
@@ -54,7 +58,7 @@ void Engine::processTurn()
 void Engine::makeStep(int input)
 {
     auto [xChange, yChange] = mapInputToCoordintesChange(input);
-    movePlayer(xChange, yChange);
+    moveEntity(&player, xChange, yChange);
 }
 
 std::pair<int, int> Engine::mapInputToCoordintesChange(int input) const
@@ -74,19 +78,24 @@ std::pair<int, int> Engine::mapInputToCoordintesChange(int input) const
     }
 }
 
-void Engine::movePlayer(int xChange, int yChange)
+void Engine::moveEntity(Entity* entity, int xChange, int yChange)
 {
-    int oldX = player.getX();
-    int newX = getNewCoordinate(oldX, xChange, static_cast<int>(map.getGrid()[0].size()));
+    int oldX = (*entity).getX();
+    int oldY = (*entity).getY();
 
-    int oldY = player.getY();
+    int newX = getNewCoordinate(oldX, xChange, static_cast<int>(map.getGrid()[0].size()));
     int newY = getNewCoordinate(oldY, yChange, static_cast<int>(map.getGrid().size()));
 
-    map.getGrid()[oldY][oldX].clearEntity();
-    map.getGrid()[newY][newX].setEntity(&player);
-    player.setCoodrinates(newX, newY);
+    //Check for collision, currently simply cancells movement
+    if (!map.getGrid()[newY][newX].getEntity().has_value()) 
+    {
+        map.getGrid()[oldY][oldX].clearEntity();
+        map.getGrid()[newY][newX].setEntity(entity);
+        (*entity).setCoodrinates(newX, newY);
+    }
 }
 
+// Includes check to stay within the map
 int Engine::getNewCoordinate(int oldCoordinate, int change, int size) const
 {
     int newCoordinate = oldCoordinate + change;

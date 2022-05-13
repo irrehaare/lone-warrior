@@ -11,6 +11,11 @@ char16_t Tile::getSymbol()
 	return tileSymbol;
 }
 
+std::optional<Entity*> Tile::getEntity()
+{
+	return pEntity;
+}
+
 void Tile::setEntity(Entity* newPEntity)
 {
 	this->pEntity = newPEntity;
