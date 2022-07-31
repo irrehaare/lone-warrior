@@ -21,39 +21,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LoneWarrior.cpp">
+    <ClCompile Include="src\Display.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Pliki źródłowe\domain\map</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Pliki źródłowe\domain\map</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
+    <ClCompile Include="src\Engine.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
+    <ClCompile Include="src\LoneWarrior.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Pliki źródłowe</Filter>
+    <ClCompile Include="src\domain\Entity.cpp">
+      <Filter>Pliki źródłowe\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\domain\Map.cpp">
+      <Filter>Pliki źródłowe\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\domain\Tile.cpp">
+      <Filter>Pliki źródłowe\domain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tile.h">
+    <ClInclude Include="include\Display.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="include\Engine.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Display.h">
+    <ClInclude Include="include\Entity.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="include\Map.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
+    <ClInclude Include="include\Tile.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
